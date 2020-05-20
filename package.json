@@ -9,11 +9,12 @@
     "node": ">=8.9.0"
   },
   "dependencies": {
-    "@tensorflow-models/posenet": "^0.2.2",
     "@tensorflow-models/handpose": "^0.0.3",
+    "@tensorflow-models/posenet": "^0.2.2",
     "@tensorflow/tfjs": "^0.13.0",
     "@tensorflow/tfjs-converter": "^1.7.0",
     "@tensorflow/tfjs-core": "^1.7.0",
+    "node-osc": "^5.1.0",
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
     "stats.js": "^0.17.0"
@@ -35,7 +36,7 @@
     "dat.gui": "^0.7.2",
     "electron": "^3.0.8",
     "eslint": "^4.19.1",
-    "parcel-bundler": "~1.10.3"
+    "parcel-bundler": "^1.12.4"
   },
   "eslintConfig": {
     "rules": {
