@@ -5,6 +5,9 @@ Wraps [MediaPipe Handpose](https://github.com/tensorflow/tfjs-models/tree/master
 
 
 # Steps
+Make sure you have [node.js](https://nodejs.org/en/) installed.
+
+
 1. Install npm dependencies using `npm install`. Since Electron's kind of big in size, this make take a while depending on your network environment.
 2. Launch using `node index.js`
 3. The node.script emits the detected results as a OSC. With each OSC address being a detected landmark.
