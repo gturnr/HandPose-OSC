@@ -1,9 +1,7 @@
 # n4m-handpose-osc
-*Fork of [n4m-handpose](https://github.com/lysdexic-audio/n4m-handpose), but runs stand-alone and outputs OSC instead using Max*<br>
+*Fork of [lysdexic audio's ](https://github.com/lysdexic-audio/)[n4m-handpose](https://github.com/lysdexic-audio/n4m-handpose), but runs stand-alone and outputs OSC instead using Max*<br>
 
 Wraps [MediaPipe Handpose](https://github.com/tensorflow/tfjs-models/tree/master/handpose) inside electron and serves the detected parts via OSC.
-
-Based around [Yuichi Yogo](https://github.com/yuichkun)'s great work porting Electron + Tensorflow models into [Node For Max](https://github.com/Cycling74/n4m-examples)
 
 
 # Steps
