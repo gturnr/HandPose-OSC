@@ -270,8 +270,6 @@ function detectHands(video, net) {
 async function bindPage() {
   const net = await handpose.load({ flipHorizontal: true });
 
-  document.getElementById("loading").style.display = "none";
-  document.getElementById("main").style.display = "block";
 
   let video;
 
@@ -288,6 +286,9 @@ async function bindPage() {
   setupGui([], net);
   setupFPS();
   detectHands(video, net);
+
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("main").style.display = "block";
 }
 
 navigator.getUserMedia = navigator.getUserMedia ||

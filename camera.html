@@ -18,7 +18,27 @@
             margin: auto;
         }
 
+        h1 {
+            color: white;
+            font-size: 32px;
+            font-family: 'Roboto';
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #loading {
+            height: 90%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         @media only screen and (max-width: 600px) {
+
             .footer-text,
             .dg {
                 display: none;
@@ -31,8 +51,8 @@
 <body style="background-color:black;">
     <div id="info" style='display:none'>
     </div>
-    <div id="loading">
-        Loading the model...
+    <div class="section" id="loading">
+        <h1>Loading the model...</h1>
     </div>
 
     <div id='main' style='display:none'>
