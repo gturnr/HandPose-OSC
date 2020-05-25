@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Handpose</title>
+    <title>Node Handpose OSC</title>
     <style>
         .footer {
             position: fixed;
@@ -24,9 +24,31 @@
             font-family: 'Roboto';
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #597b91;
+            /* Blue */
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         #loading {
@@ -52,7 +74,7 @@
     <div id="info" style='display:none'>
     </div>
     <div class="section" id="loading">
-        <h1>Loading the model...</h1>
+        <div class="loader"></div>
     </div>
 
     <div id='main' style='display:none'>
