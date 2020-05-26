@@ -190,9 +190,14 @@ let fingerLookupIndices =
   pinky: [0, 17, 18, 19, 20]
 }; // for rendering each finger as a polyline
 
-function drawPoint(ctx, y, x, r) {
+function drawPoint(ctx, y, x, r, idx) {
   ctx.beginPath();
   ctx.arc(x, y, r, 0, 2 * Math.PI);
+  ctx.save()
+  ctx.translate(x, y);
+  ctx.scale(-1, 1);
+  ctx.fillText(idx, 5, -5);
+  ctx.restore()
   //ctx.fillStyle = _color;
   ctx.fill();
 }
@@ -203,7 +208,7 @@ function drawKeypoints(ctx, keypoints) {
   for (let i = 0; i < keypointsArray.length; i++) {
     const y = keypointsArray[i][0];
     const x = keypointsArray[i][1];
-    drawPoint(ctx, x - 2, y - 2, 3);
+    drawPoint(ctx, x - 2, y - 2, 3, i);
   }
   const fingers = Object.keys(fingerLookupIndices);
   for (let i = 0; i < fingers.length; i++) {
