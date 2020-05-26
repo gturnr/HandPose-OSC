@@ -3,6 +3,9 @@
 
 Wraps [MediaPipe Handpose](https://github.com/tensorflow/tfjs-models/tree/master/handpose) inside electron and serves the detected parts via OSC.
 
+## Running the program
+If you're not interested in modifying the code, you can just download the latest [release](https://github.com/faaip/node-HandPose-OSC/releases) (still only OSX, though)
+
 
 # Steps
 Make sure you have [node.js](https://nodejs.org/en/) installed. Additionally this has been developed using [yarn](https://yarnpkg.com/).
