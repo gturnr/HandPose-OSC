@@ -1,5 +1,6 @@
 {
-  "name": "n4m-handpose",
+  "name": "node-HandPose-OSC",
+  "author": "https://github.com/faaip/",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",

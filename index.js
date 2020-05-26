@@ -8,7 +8,7 @@ const child = proc.spawn(electron, ["."]);
 io.on("connection", (socket) => {
 	console.log("Socket is connected with Electron App");
 	socket.on("dispatch", (data) => {
-		// console.log("dispatch: ", data);
+		console.log("dispatch: ", data);
 		for (let i = 0; i < data.landmarks.length; i++) {
 			client.send('/' + i, data.landmarks[i], () => {
 			});
