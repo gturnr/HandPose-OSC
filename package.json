@@ -14,6 +14,7 @@
     "@tensorflow/tfjs": "^0.13.0",
     "@tensorflow/tfjs-converter": "^1.7.0",
     "@tensorflow/tfjs-core": "^1.7.0",
+    "dat.gui": "^0.7.7",
     "node-osc": "^5.1.0",
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
@@ -24,7 +25,9 @@
     "build": "NODE_ENV=production parcel build index.html --no-minify --public-url ./",
     "build-camera": "NODE_ENV=production parcel build camera.html  --no-minify --public-url ./",
     "lint": "eslint .",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -33,8 +36,8 @@
     "babel-preset-env": "~1.6.1",
     "babel-preset-es2017": "^6.24.1",
     "clang-format": "~1.2.2",
-    "dat.gui": "^0.7.2",
     "electron": "^3.0.8",
+    "electron-builder": "^22.6.1",
     "eslint": "^4.19.1",
     "parcel-bundler": "^1.12.4"
   },
