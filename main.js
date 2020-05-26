@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require("electron");
+const server = require('./index')
 
 
 function createWindow() {
