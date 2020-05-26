@@ -5,9 +5,12 @@ Wraps [MediaPipe Handpose](https://github.com/tensorflow/tfjs-models/tree/master
 
 
 # Steps
-Make sure you have [node.js](https://nodejs.org/en/) installed.
+Make sure you have [node.js](https://nodejs.org/en/) installed. Additionally this has been developed using [yarn](https://yarnpkg.com/).
 
-
-1. Install npm dependencies using `npm install`. Since Electron's kind of big in size, this make take a while depending on your network environment.
-2. Launch using `node index.js`
+1. Install npm dependencies using `yarn install`. Since Electron's kind of big in size, this make take a while depending on your network environment.
+2. Launch using `yarn start`
 3. The node.script emits the detected results as a OSC. With each OSC address being a detected landmark.
+
+## Building Electron App
+First install all dependencies using `yarn install`.<br>
+Then create the executable by running `yarn run dist`
