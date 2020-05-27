@@ -47,7 +47,8 @@ function isMobile() {
 }
 
 function sendOSC(predictions) {
-  socket.emit("dispatch", {"predictions": predictions, "oscFormatting": guiState.oscFormatting });
+  socket.emit("dispatch", { "predictions": predictions, "oscFormatting": guiState.oscFormatting });
+  console.log(guiState.oscFormatting)
 }
 
 //------------------------------------
@@ -139,7 +140,7 @@ const guiState =
     showVideo: true,
   },
   oscFormatting: {
-    confidence: true,
+    handInViewConfidence: true,
     boundingBox: true,
     landmarks: true,
     annotations: true
@@ -178,9 +179,9 @@ async function setupGui(cameras, net) {
   output.add(guiState.output, "showVideo");
   output.open();
 
-  
+
   let oscFormatting = gui.addFolder("OSC output formatting");
-  oscFormatting.add(guiState.oscFormatting, "confidence");
+  oscFormatting.add(guiState.oscFormatting, "handInViewConfidence");
   oscFormatting.add(guiState.oscFormatting, "boundingBox");
   oscFormatting.add(guiState.oscFormatting, "landmarks");
   oscFormatting.add(guiState.oscFormatting, "annotations");
@@ -266,11 +267,11 @@ function detectHands(video, net) {
       const predictions = await guiState.net.estimateHands(video);
 
       if (predictions.length > 0) {
-          if (guiState.renderLandMarks) {
-            const result = predictions[0].landmarks;
-            drawKeypoints(ctx, result)
-          }
-          sendOSC(predictions[0]);
+        if (guiState.renderLandMarks) {
+          const result = predictions[0].landmarks;
+          drawKeypoints(ctx, result)
+        }
+        sendOSC(predictions[0]);
       }
 
       stats.end();
@@ -280,7 +281,7 @@ function detectHands(video, net) {
 
     renderPrediction();
   }, false);
-} 
+}
 
 /**
  * Kicks off the demo by loading the handpose model, finding and loading

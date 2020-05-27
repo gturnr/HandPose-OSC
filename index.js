@@ -5,9 +5,9 @@ const client = new Client('127.0.0.1', 8008);
 io.on("connection", (socket) => {
 	console.log("Socket is connected with Electron App");
 	socket.on("dispatch", (data) => {
-		console.log("dispatch: ", data.oscFormatting);
-		if (data.oscFormatting.confidence) {
-
+		if (data.oscFormatting.handInViewConfidence) {
+			// console.log("/handInViewConfidence", data.predictions.handInViewConfidence);
+			client.send("/handInViewConfidence", data.predictions.handInViewConfidence)
 		}
 		if (data.oscFormatting.boundingBox) {
 
