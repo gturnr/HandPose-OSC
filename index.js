@@ -6,11 +6,11 @@ io.on("connection", (socket) => {
 	console.log("Socket is connected with Electron App");
 	socket.on("dispatch", (data) => {
 		if (data.oscFormatting.handInViewConfidence) {
-			// console.log("/handInViewConfidence", data.predictions.handInViewConfidence);
 			client.send("/handInViewConfidence", data.predictions.handInViewConfidence)
 		}
 		if (data.oscFormatting.boundingBox) {
-
+			client.send("/boundingBox/topLeft", data.predictions.boundingBox.topLeft)
+			client.send("/boundingBox/bottomRight", data.predictions.boundingBox.bottomRight)
 		}
 		if (data.oscFormatting.landmarks) {
 
