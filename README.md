@@ -6,7 +6,6 @@ Wraps [MediaPipe Handpose](https://github.com/tensorflow/tfjs-models/tree/master
 ## Running the program
 If you're not interested in modifying the code, you can just download the latest [release](https://github.com/faaip/node-HandPose-OSC/releases) (still only OSX, though)
 
-
 # Steps
 Make sure you have [node.js](https://nodejs.org/en/) installed. Additionally this has been developed using [yarn](https://yarnpkg.com/).
 
@@ -17,3 +16,20 @@ Make sure you have [node.js](https://nodejs.org/en/) installed. Additionally thi
 ## Building Electron App
 First install all dependencies using `yarn install`.<br>
 Then create the executable by running `yarn run dist`
+
+## OSC output
+By default the program outputs OSC to localhost, port 8008. This can be changed in the GUI. You can choose what to send over OSC from the GUI. By default the program sends:
+* Confidence:
+    * **Hand in view confidence** /handInViewConfidence [0..1]
+* Bounding box
+    * **top left:** /topLeft [x, y, z]
+    * **bottom right:** /bottomRight [x, y, z]
+* Landmarks:
+    * **landmarks** /landmarks (21 * [x, y, z])
+* Annotations:
+    * **thumb** /thumb (4 * [x, y, z])
+    * **index finger** /indexFinger (4 * [x, y, z])
+    * **middle finger** /middleFinger (4 * [x, y, z])
+    * **ring finger** /ringFinger (4 * [x, y, z])
+    * **pinky** /pinky (4 * [x, y, z])
+    * **palm base** /palmBase [x, y, z]
