@@ -30,8 +30,8 @@ const tf = require("@tensorflow/tfjs-core");
 
 //import {TRIANGULATION} from './triangulation'; //syntax?
 
-const videoWidth = 500;
-const videoHeight = 500;
+const videoWidth = 800;
+const videoHeight = 600;
 const stats = new Stats();
 
 function isAndroid() {
