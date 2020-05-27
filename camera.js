@@ -138,6 +138,12 @@ const guiState =
   output: {
     showVideo: true,
   },
+  oscFormatting: {
+    confidence: true,
+    boundingBox: true,
+    landmarks: true,
+    annotations: true
+  },
   net: null
 };
 
@@ -171,6 +177,13 @@ async function setupGui(cameras, net) {
   let output = gui.addFolder("Output");
   output.add(guiState.output, "showVideo");
   output.open();
+  
+  let oscFormatting = gui.addFolder("OSC output formatting");
+  oscFormatting.add(guiState.oscFormatting, "confidence");
+  oscFormatting.add(guiState.oscFormatting, "boundingBox");
+  oscFormatting.add(guiState.oscFormatting, "landmarks");
+  oscFormatting.add(guiState.oscFormatting, "annotations");
+  oscFormatting.open();
 }
 
 /**
