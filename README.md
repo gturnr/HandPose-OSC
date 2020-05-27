@@ -27,9 +27,9 @@ By default the program outputs OSC to localhost, port 8008. This can be changed 
 * Landmarks:
     * **landmarks** /landmarks (21 * [x, y, z])
 * Annotations:
-    * **thumb** /thumb (4 * [x, y, z])
-    * **index finger** /indexFinger (4 * [x, y, z])
-    * **middle finger** /middleFinger (4 * [x, y, z])
-    * **ring finger** /ringFinger (4 * [x, y, z])
-    * **pinky** /pinky (4 * [x, y, z])
-    * **palm base** /palmBase [x, y, z]
+    * **thumb** /annotations/thumb (4 * [x, y, z])
+    * **index finger** /annotations/indexFinger (4 * [x, y, z])
+    * **middle finger** /annotations/middleFinger (4 * [x, y, z])
+    * **ring finger** /annotations/ringFinger (4 * [x, y, z])
+    * **pinky** /annotations/pinky (4 * [x, y, z])
+    * **palm base** /annotations/palmBase [x, y, z]
