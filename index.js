@@ -16,12 +16,13 @@ io.on("connection", (socket) => {
 			client.send("/landmarks", data.predictions.landmarks)
 		}
 		if (data.oscFormatting.annotations) {
-
+			let annotations = data.predictions.annotations;
+			for (var key in annotations) {
+				if (annotations.hasOwnProperty(key)) {
+					client.send("/annotations/" + key , annotations[key]);
+				}
+			}
 		}
-		// for (let i = 0; i < data.landmarks.length; i++) {
-		// 	client.send('/' + i, data.landmarks[i], () => {
-		// 	});
-		// }
 	});
 
 	socket.on("oscPortSet", (port) => {
