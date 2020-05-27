@@ -47,7 +47,7 @@ function isMobile() {
 }
 
 function sendOSC(predictions) {
-  socket.emit("dispatch", predictions);
+  socket.emit("dispatch", {"predictions": predictions, "oscFormatting": guiState.oscFormatting });
 }
 
 //------------------------------------
@@ -177,6 +177,7 @@ async function setupGui(cameras, net) {
   let output = gui.addFolder("Output");
   output.add(guiState.output, "showVideo");
   output.open();
+
   
   let oscFormatting = gui.addFolder("OSC output formatting");
   oscFormatting.add(guiState.oscFormatting, "confidence");
