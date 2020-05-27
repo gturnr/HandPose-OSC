@@ -13,7 +13,7 @@ io.on("connection", (socket) => {
 			client.send("/boundingBox/bottomRight", data.predictions.boundingBox.bottomRight)
 		}
 		if (data.oscFormatting.landmarks) {
-
+			client.send("/landmarks", data.predictions.landmarks)
 		}
 		if (data.oscFormatting.annotations) {
 
