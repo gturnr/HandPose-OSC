@@ -1,6 +1,6 @@
 {
-  "name": "node-HandPose-OSC",
-  "author": "https://github.com/faaip/",
+  "name": "HandPose-OSC",
+  "author": "frederik@tollund.cc",
   "version": "1.1.0",
   "description": "",
   "main": "main.js",

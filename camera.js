@@ -17,18 +17,11 @@
 const SocketIOClient = require("socket.io-client");
 const io = new SocketIOClient("http://localhost:3000");
 const socket = io.connect();
-socket.on("connect", () => {
-  //socket.emit("dispatch", "Socket is connected, Ready");
-});
 
 const handpose = require("@tensorflow-models/handpose");
 const dat = require("dat.gui");
 const Stats = require("stats.js");
 const tf = require("@tensorflow/tfjs-core");
-
-//console.log("version: ", version.version);
-
-//import {TRIANGULATION} from './triangulation'; //syntax?
 
 const videoWidth = 800;
 const videoHeight = 600;
@@ -239,8 +232,6 @@ function detectHands(video, net) {
     // Video is loaded and can be played
     const canvas = document.getElementById("output");
     const ctx = canvas.getContext("2d");
-    // since images are being fed from a webcam
-    const flipHorizontal = true;
 
     canvas.width = videoWidth;
     canvas.height = videoHeight;
@@ -257,11 +248,7 @@ function detectHands(video, net) {
       ctx.clearRect(0, 0, videoWidth, videoHeight);
 
       if (guiState.output.showVideo) {
-        //ctx.save();
-        //ctx.scale(-1, 1);
-        //ctx.translate(-videoWidth, 0);
         ctx.drawImage(video, 0, 0, videoWidth, videoHeight);
-        //ctx.restore();
       }
 
       const predictions = await guiState.net.estimateHands(video);
@@ -283,13 +270,8 @@ function detectHands(video, net) {
   }, false);
 }
 
-/**
- * Kicks off the demo by loading the handpose model, finding and loading
- * available camera devices, and setting off the detectFaces function.
- */
 async function bindPage() {
   const net = await handpose.load({ flipHorizontal: true });
-
 
   let video;
 
@@ -313,5 +295,4 @@ async function bindPage() {
 
 navigator.getUserMedia = navigator.getUserMedia ||
   navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-// kick off the demo
 bindPage();
