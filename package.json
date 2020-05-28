@@ -1,6 +1,10 @@
 {
   "name": "HandPose-OSC",
-  "author": "frederik@tollund.cc",
+  "author": {
+    "name": "Frederik T. Juutilainen",
+    "email": "frederik@tollund.cc",
+    "url": "https://github.com/faaip/"
+  },
   "version": "1.1.0",
   "description": "",
   "main": "main.js",
@@ -28,7 +32,16 @@
     "lint": "eslint .",
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder --linux deb rpm AppImage --macos --win"
+  },
+  "build": {
+    "linux": {
+      "category": "Handtracking",
+      "icon": "build/1024x1024.png or any route to the right png file > 256px X 256px",
+      "target": [
+        "AppImage"
+      ]
+    }
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
