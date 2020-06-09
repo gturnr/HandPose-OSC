@@ -29,6 +29,11 @@ io.on("connection", (socket) => {
 		client.port = port;
 		console.log('OSC port set to', client.port);
 	});
+
+	socket.on("hostSet", (host) => {
+		client.host = host;
+		console.log('Host set to', client.host);
+	});
 });
 
 io.listen(3000);

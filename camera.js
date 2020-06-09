@@ -41,7 +41,6 @@ function isMobile() {
 
 function sendOSC(predictions) {
   socket.emit("dispatch", { "predictions": predictions, "oscFormatting": guiState.oscFormatting });
-  console.log(guiState.oscFormatting)
 }
 
 //------------------------------------
@@ -129,6 +128,7 @@ const guiState =
   renderLandMarks: true,
   sendOsc: true,
   oscPort: 8008,
+  host: 'localhost',
   output: {
     showVideo: true,
   },
@@ -168,10 +168,13 @@ async function setupGui(cameras, net) {
     socket.emit("oscPortSet", value);
   });
 
+  hostController = gui.add(guiState, "host").onFinishChange(function (value) {
+    socket.emit("hostSet", value);
+  });
+  
   let output = gui.addFolder("Output");
   output.add(guiState.output, "showVideo");
   output.open();
-
 
   let oscFormatting = gui.addFolder("OSC output formatting");
   oscFormatting.add(guiState.oscFormatting, "handInViewConfidence");
