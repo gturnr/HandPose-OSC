@@ -128,7 +128,7 @@ const guiState =
   renderLandMarks: true,
   sendOsc: true,
   oscPort: 8008,
-  host: 'localhost',
+  host: '127.0.0.1',
   output: {
     showVideo: true,
   },
@@ -168,10 +168,17 @@ async function setupGui(cameras, net) {
     socket.emit("oscPortSet", value);
   });
 
+  let lastValidHost = '127.0.0.1';
   hostController = gui.add(guiState, "host").onFinishChange(function (value) {
-    socket.emit("hostSet", value);
-  });
-  
+    if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(value)) {
+      socket.emit("hostSet", value);
+      lastValidHost = value;
+    } else {
+      guiState.host = lastValidHost
+      alert(value + ' is not a valid IP.')
+    }
+  }).listen();
+
   let output = gui.addFolder("Output");
   output.add(guiState.output, "showVideo");
   output.open();
