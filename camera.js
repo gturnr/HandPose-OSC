@@ -289,9 +289,10 @@ async function bindPage() {
     video = await loadVideo();
   } catch (e) {
     let info = document.getElementById("info");
-    info.textContent = "this browser does not support video capture," +
-      "or this device does not have a camera";
-    info.style.display = "block";
+    info.textContent = "No webcam device found. Connect webcam and restart."
+    info.style.display = "inline-block";
+    document.getElementById("loading").style.display = "none";
+    alert("No webcam device found. Connect webcam and restart.");
     throw e;
   }
 
