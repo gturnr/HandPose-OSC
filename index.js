@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
 			let annotations = data.predictions.annotations;
 			for (var key in annotations) {
 				if (annotations.hasOwnProperty(key)) {
-					client.send("/annotations/" + key , annotations[key]);
+					client.send("/annotations/" + key, annotations[key]);
 				}
 			}
 		}
@@ -33,14 +33,6 @@ io.on("connection", (socket) => {
 	socket.on("hostSet", (host) => {
 		client.host = host;
 		console.log('Host set to', client.host);
-	});
-
-	socket.on("saveSettings", (settings) => {
-		console.log(settings);
-	});
-
-	socket.on("loadSettings", (settings) => {
-		console.log(settings);
 	});
 });
 
