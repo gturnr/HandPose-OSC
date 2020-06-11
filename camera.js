@@ -293,10 +293,6 @@ async function bindPage() {
   try {
     video = await loadVideo();
   } catch (e) {
-    let info = document.getElementById("info");
-    info.textContent = "No webcam device found. Connect webcam and restart."
-    info.style.display = "inline-block";
-    document.getElementById("loading").style.display = "none";
     alert("No webcam device found. Connect webcam and restart.");
     throw e;
   }
