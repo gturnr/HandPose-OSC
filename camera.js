@@ -138,6 +138,9 @@ const guiState =
     landmarks: true,
     annotations: true
   },
+  SaveSettings: function () {
+    socket.emit("saveSettings", guiState);
+  },
   net: null
 };
 
@@ -189,6 +192,8 @@ async function setupGui(cameras, net) {
   oscFormatting.add(guiState.oscFormatting, "landmarks");
   oscFormatting.add(guiState.oscFormatting, "annotations");
   oscFormatting.open();
+
+  gui.add(guiState, 'SaveSettings');
 }
 
 /**

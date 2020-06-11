@@ -34,6 +34,14 @@ io.on("connection", (socket) => {
 		client.host = host;
 		console.log('Host set to', client.host);
 	});
+
+	socket.on("saveSettings", (settings) => {
+		console.log(settings);
+	});
+
+	socket.on("loadSettings", (settings) => {
+		console.log(settings);
+	});
 });
 
 io.listen(3000);
