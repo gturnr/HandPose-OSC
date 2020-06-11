@@ -2,88 +2,25 @@
 <html>
 
 <head>
-    <title>HandPose OSC</title>
-    <style>
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            color: black;
-        }
-
-        .footer-text {
-            max-width: 600px;
-            text-align: center;
-            margin: auto;
-        }
-
-        #info {
-            color: white;
-            font-size: 32px;
-            font-family: 'Roboto';
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
-
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #597b91;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        #loading {
-            height: 90%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media only screen and (max-width: 600px) {
-
-            .footer-text,
-            .dg {
-                display: none;
-            }
-        }
-    </style>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HandPose OSC</title>
 </head>
 
-<body style="background-color:black;">
-    <div class="section" id="loading">
+<body>
+    <div class="loader-container" id="loading">
         <div class="loader"></div>
+        <div class="loader-text">
+            If this is the first time running the program, make sure your computer is connected to the internet.
+        </div>
     </div>
 
     <div id='main' style='display:none'>
-        <video id="video" playsinline style=" -moz-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-        display: none;
-        ">
+        <video id="video" playsinline class="video-feed">
         </video>
         <canvas id="output" />
     </div>
     <script src="camera.js"></script>
 </body>
-
 </html>
