@@ -18,7 +18,7 @@ function createWindow() {
 	});
 	
 	//uncomment for debug console:
-	win.webContents.openDevTools();
+	//win.webContents.openDevTools();
 
 	// and load the html of the app.
 	win.loadFile("./camera.html");

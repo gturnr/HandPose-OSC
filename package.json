@@ -32,9 +32,11 @@
       "lint": "eslint .",
       "start": "electron .",
       "pack": "electron-builder --dir",
-      "dist": "electron-builder --linux deb rpm AppImage --macos --win"
+      "dist": "electron-builder --linux deb rpm AppImage --macos --win",
+      "dist-mac": "electron-builder --macos -c.mac.identity=null"
   },
   "build": {
+      "appId": "handpose-osc",
       "linux": {
           "category": "Handtracking",
           "icon": "build/1024x1024.png or any route to the right png file > 256px X 256px",
@@ -46,12 +48,25 @@
           "requestedExecutionLevel": "requireAdministrator"
       },
       "mac": {
+          "category": "public.app-category.productivity",
           "hardenedRuntime": true,
           "entitlements": "entitlements.mac.plist",
+          "entitlementsInherit": "entitlements.mac.plist",
           "extendInfo": {
               "NSCameraUsageDescription": "Please give us access to your camera",
               "com.apple.security.device.camera": true
-          }
+          },
+          "target": [
+            {
+              "target": "mas",
+              "arch": [
+                "universal"
+              ]
+            },
+            {
+              "target": "mas-dev"
+            }
+          ]
       }
   },
   "devDependencies": {
